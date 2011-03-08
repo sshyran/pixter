@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Tutorial on how to set up SVN client to upload projects.
 
 = What you need =
 
@@ -16,3 +16,6 @@ Eclipse, access to eclipse labs group, and SVN plug-in for eclipse. The links ar
 *Tutorial on how to set up svn on eclipse*
   * http://www.ibm.com/developerworks/opensource/library/os-ecl-subversion/
 
+= Alternatives =
+
+You can use another SVN client but I think it's more convenient having the eclipse plug-in. 
