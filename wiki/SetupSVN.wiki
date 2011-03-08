@@ -1,0 +1,18 @@
+#summary One-sentence summary of this page.
+
+= What you need =
+
+Eclipse, access to eclipse labs group, and SVN plug-in for eclipse. The links are tutorials on how to do it. If you get stuck send carlospadillanv@gmail an email.
+
+
+=  Links =
+
+*Best tutorial, use this first. Use others if you aren't sure what's going on in the video*
+  * http://www.youtube.com/watch?v=FwGJZcCj1Yo
+
+*Tutorial on overall process, however this example is specifically for google groups*
+  * http://blog.msbbc.co.uk/2007/06/using-googles-free-svn-repository-with.html
+
+*Tutorial on how to set up svn on eclipse*
+  * http://www.ibm.com/developerworks/opensource/library/os-ecl-subversion/
+
