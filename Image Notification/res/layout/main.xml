@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent" android:orientation="vertical">
+
+    <Button android:onClick="ClickHandler" android:layout_height="wrap_content" android:id="@+id/Button01" android:text="Download" android:layout_width="wrap_content"></Button>
+    <Button android:onClick="ClickHandler1" android:layout_height="wrap_content" android:id="@+id/btn" android:text="Next Image" android:layout_width="wrap_content"></Button>
+    <TextView android:layout_height="wrap_content" android:text="TextView" android:id="@+id/textView1" android:layout_width="wrap_content"></TextView>
+  <ViewFlipper
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:id="@+id/flip"
+    >
+    <ImageView
+   android:id="@+id/ImageView01"
+   android:scaleType="center"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:visibility="visible"/>
+   <ImageView
+   android:id="@+id/ImageView02"
+   android:scaleType="center"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:visibility="visible"/>
+   <ImageView
+   android:id="@+id/ImageView03"
+   android:scaleType="center"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:visibility="visible"/>
+</ViewFlipper>
+</LinearLayout>
