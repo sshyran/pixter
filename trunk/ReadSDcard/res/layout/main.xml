@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+  <ViewFlipper
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:id="@+id/flip"
+    >
+    <ImageView
+   android:id="@+id/ImageView01"
+   android:scaleType="center"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:visibility="visible"/>
+  
+  </ViewFlipper>
+
+</LinearLayout>
