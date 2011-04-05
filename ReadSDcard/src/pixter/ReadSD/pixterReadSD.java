@@ -23,7 +23,7 @@ public class pixterReadSD extends Activity {
 	private ViewFlipper flip;
 	Drawable drawable;
 	ImageView imgView ;
-	public int j = 0;
+	public int j = -1;
 	List<String> imageNames = new ArrayList<String>();  
 	
 	@Override  
@@ -35,6 +35,7 @@ public class pixterReadSD extends Activity {
 	    
 	    //List<String> imageNames = new ArrayList<String>();  
 	    imageNames = ReadSDCard();
+	   
 		//while(true){
 		 //   s1 = imageNames.get(j);
 	     //   pixterLoadImage(s1);
@@ -72,11 +73,11 @@ public class pixterReadSD extends Activity {
 	public void onBackPressed()
     {
 	 j = j +1;
-	 
+	 if (j == imageNames.size()) j = 0;
 	 s1 = imageNames.get(j);
-     pixterLoadImage(s1);
      
-     if (j > imageNames.size()) j = 0;
+	 pixterLoadImage(s1);
+     
     	
     	
 	}
