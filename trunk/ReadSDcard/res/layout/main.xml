@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
+    android:gravity="center"> 
   <ViewFlipper
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent"
@@ -11,7 +11,7 @@
     >
     <ImageView
    android:id="@+id/ImageView01"
-   android:scaleType="center"
+   android:scaleType="fitCenter"
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
    android:visibility="visible"/>
