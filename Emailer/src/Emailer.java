@@ -23,6 +23,7 @@ public class Emailer {
 	public static int counterTop= 0;
 	public static String ipAdd2; 
 	public static boolean connection;
+	public static String ipTxtLocation = "C:\\Users\\Carberto\\workspace\\Emailer\\src\\ip.txt";
 
 	public static void main(String args[]) {
     	Emailer emailer = new Emailer();
@@ -73,7 +74,7 @@ public class Emailer {
 		        	FileWriter fstream2;
 		        	BufferedWriter ipTxt2 = null;
 					try {
-						fstream2 = new FileWriter("C:\\Users\\Carberto\\workspace\\Emailer\\src\\ip.txt");
+						fstream2 = new FileWriter(ipTxtLocation);
 						ipTxt2 = new BufferedWriter(fstream2);
 					} catch (IOException e1) {
 						e1.printStackTrace();
@@ -133,7 +134,7 @@ public class Emailer {
 	          try{
 	        // Open the file that is the first 
 	        // command line parameter
-	        FileInputStream fstream = new FileInputStream("C:\\Users\\Carberto\\workspace\\Emailer\\src\\ip.txt");
+	        FileInputStream fstream = new FileInputStream(ipTxtLocation);
 	        // Get the object of DataInputStream
 	        DataInputStream in = new DataInputStream(fstream);
 	            BufferedReader br = new BufferedReader(new InputStreamReader(in));
