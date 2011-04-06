@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pixster</string>
+    <string name="main_title">"Pixster Digital Picture Frame"</string>
+    <string name="continue_label">Connect to WIFI</string>
+    <string name="new_game_label">View Pictures</string>
+    <string name="about_label">Get Pictures</string>
+    <string name="exit_label">Delete Pictures</string>
+    <string name="options_label">Options</string>
+    
+    <string name="get_all">Get All Pictures</string>
+    <string name="notifications">Notifications</string>
+    <string name="transition_speed">Transition Speed</string>
+</resources>
