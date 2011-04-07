@@ -8,7 +8,7 @@ Eclipse, access to eclipse labs group, and SVN plug-in for eclipse. The links ar
 ===Step 1: Install SVN Plug-in to Eclipse===
   # In Eclipse go to *Help->Install New Software*
   # In the *Work with* field put this URL in
-      _http://subclipse.tigris.org/update_1.0._
+      _http://subclipse.tigris.org/update_1.0.x_
   # Click *Add* and name it _SVN_
   # Check the box I believe is called _Subversion Client_
   # Hit *Next* and continue through the windows until it is installed
