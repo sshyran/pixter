@@ -5,6 +5,43 @@
 Eclipse, access to eclipse labs group, and SVN plug-in for eclipse. The links are tutorials on how to do it. If you get stuck send carlospadillanv@gmail an email.
 
 
+===Step 1: Install SVN Plug-in to Eclipse===
+  # In Eclipse go to *Help->Install New Software*
+  # In the *Work with* field put this URL in
+      _http://subclipse.tigris.org/update_1.0._
+  # Click *Add* and name it _SVN_
+  # Check the box I believe is called _Subversion Client_
+  # Hit *Next* and continue through the windows until it is installed
+  # Restart your Browser once it's done.
+
+===Step 2: Set up Connection to Eclipse Labs Group=== 
+  # In Eclipse go to *Window->Open Perspective->Other*
+  # Select *SVN Repository Exploring*
+  # In this new perspective right click the SVN Repositories tab and select *New->Repository Location*
+  # Add this URL
+       _https://svn.codespot.com/a/eclipselabs.org/cpp-scheduler/trunk/_
+  # Click *Finish* and any projects in the repository should appear
+
+===Step 3: Check in/Upload project to SVN server (Eclipse Labs)===
+  # Right click the project you wish to upload to the server 
+  # Select *Team->Share Project*
+  # Select the *SVN*
+  # Click *Next*
+  # Select the repository you just added and continue through the windows until you have uploaded.
+  # Select all files you wish to upload.
+  # Along the way you will be prompted for username and password
+      * *Username* is your email
+      * *Password* found by clicking *_googlecode.com password_* in the *Source Tab* of Eclipse labs.
+          _http://code.google.com/a/eclipselabs.org/p/cpp-scheduler/source/checkout_
+
+===Step 4: Future Use===
+  # To upload updated code to an already shared project
+     * *Team->Commit*
+  # To download code from SVN server
+     * In SVN Perspective right click project 
+     * *Check out*
+
+
 =  Links =
 
 *Best tutorial, use this first. Use others if you aren't sure what's going on in the video*
