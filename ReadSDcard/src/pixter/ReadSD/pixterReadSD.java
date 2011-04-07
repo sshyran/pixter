@@ -71,9 +71,7 @@ public class pixterReadSD extends Activity {
       private void refreshUI()
       {
     	  
-    	  mRedrawHandler.sleep(3000); // deliberately placed in this location to get synchronized animation
-    	  int k = j + 1;
-    	  if (k == imageNames.size()) k = 0;
+    	 mRedrawHandler.sleep(3000); // deliberately placed in this location to get synchronized animation
     	 imgView.setImageDrawable(Drawable.createFromPath(imageNames.get(j)));
     	 imgView2.setImageDrawable(Drawable.createFromPath(imageNames.get(j)));
     	 flip.showNext();  // deliberately placed in this location to get synchronized animation
