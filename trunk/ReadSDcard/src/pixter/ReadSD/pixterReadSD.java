@@ -19,7 +19,7 @@ public class pixterReadSD extends Activity {
 	public String s1;
 	private ViewFlipper flip;
 	Drawable drawable;
-	ImageView imgView ;
+	ImageView imgView, imgView2 ;
 	public int j = 1;
 	private RefreshHandler mRedrawHandler = new RefreshHandler();
 	List<String> imageNames = new ArrayList<String>();  
@@ -36,8 +36,17 @@ public class pixterReadSD extends Activity {
 				.get(0)));
 	    
 	   
+	    imgView2 =(ImageView)findViewById(R.id.ImageView02);				// Instantiate Image view 2
+	    imgView2.setImageDrawable(Drawable.createFromPath(imageNames     // View images from List
+				.get(0)));
+	    
+	    flip = (ViewFlipper)findViewById(R.id.flip);
+	    flip.setInAnimation(this,android.R.anim.fade_in);
+	    flip.setOutAnimation(this, android.R.anim.fade_out);
+	    
 	    refreshUI();	//Handler to refresh Imageview every 3 seconds
-
+	    
+	   
 	}  
 	
     // Handles Imageview Refresh 
@@ -45,23 +54,34 @@ public class pixterReadSD extends Activity {
         @Override
         public void handleMessage(Message msg) {
         	pixterReadSD.this.refreshUI();
+        	
         }
         
         public void sleep(long delayMillis) {
             this.removeMessages(0);
             sendMessageDelayed(obtainMessage(0), delayMillis);
+           
           }
         
       };
       
       //Reinstantiates imgView. Variable j is used to move through all the elements in the list
       //handler is paused for 3 seconds before next image is loaded
+      //Order of code is very important and shall not be moved
       private void refreshUI()
       {
+    	  
+    	  mRedrawHandler.sleep(3000); // deliberately placed in this location to get synchronized animation
+    	  int k = j + 1;
+    	  if (k == imageNames.size()) k = 0;
     	 imgView.setImageDrawable(Drawable.createFromPath(imageNames.get(j)));
-    	 mRedrawHandler.sleep(3000);
-		 j = j +1;
+    	 imgView2.setImageDrawable(Drawable.createFromPath(imageNames.get(j)));
+    	 flip.showNext();  // deliberately placed in this location to get synchronized animation
+    	
+    	 j = j +1;
 		 if (j == imageNames.size()) j = 0;
+		 flip.showNext(); // deliberately placed in this location to get synchronized animation
+		    
        }
     	  
  
