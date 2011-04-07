@@ -21,7 +21,6 @@ public class pixterReadSD extends Activity {
 	Drawable drawable;
 	ImageView imgView ;
 	public int j = 1;
-	Timer timer;
 	private RefreshHandler mRedrawHandler = new RefreshHandler();
 	List<String> imageNames = new ArrayList<String>();  
 	
@@ -31,51 +30,21 @@ public class pixterReadSD extends Activity {
 	    setContentView(R.layout.main);  
 	    
 
-	    imageNames = ReadSDCard();
-	    imgView =(ImageView)findViewById(R.id.ImageView01);
-	    imgView.setImageDrawable(Drawable.createFromPath(imageNames
+	    imageNames = ReadSDCard();										//Read Images from SD card and store in List
+	    imgView =(ImageView)findViewById(R.id.ImageView01);				// Instantiate Image view
+	    imgView.setImageDrawable(Drawable.createFromPath(imageNames     // View images from List
 				.get(0)));
 	    
-	    s1 = imageNames.get(0);
-	    
-	   // TimerThread timerThread = new TimerThread();
-       // timerThread.start();
-     
-	    updateUI();
+	   
+	    refreshUI();	//Handler to refresh Imageview every 3 seconds
 
-	 /*   flip = (ViewFlipper)findViewById(R.id.flip);
-	    
-	    flip.setInAnimation(this,android.R.anim.fade_in);
-	   //when a view disappears
-	    flip.setOutAnimation(this, android.R.anim.fade_out); 
-	    */
-	    
 	}  
 	
-	/*private class TimerThread extends Thread
-    {
-            public void run()
-            {
-                    timer = new Timer();
-                    timer.schedule(new DownloadTimerTask(), 5000);
-            }
-    }
-	
-    private class DownloadTimerTask extends TimerTask
-    {
-            public void run()
-            {
-                    
-                    handler.sendEmptyMessage(0);
-                    j = j +1;
-           		    if (j == imageNames.size()) j = 0;
-            }
-    }*/
-    
+    // Handles Imageview Refresh 
     class RefreshHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
-        	pixterReadSD.this.updateUI();
+        	pixterReadSD.this.refreshUI();
         }
         
         public void sleep(long delayMillis) {
@@ -85,40 +54,27 @@ public class pixterReadSD extends Activity {
         
       };
       
-      private void updateUI(){
-		    	  imgView.setImageDrawable(Drawable.createFromPath(imageNames
-							.get(j)));
-		    	 mRedrawHandler.sleep(3000);
-				 j = j +1;
-				 if (j == imageNames.size()) j = 0;
-    	    }
-    	  
-   
-  /*  Handler handler = new Handler()
-    {
-            
-            @Override
-            public void handleMessage(Message msg)
-            {
-            	imgView.setImageDrawable(Drawable.createFromPath(imageNames
-    					.get(j)));
-            }
-    };*/
-	
-	public void onBackPressed()
-    {
-			
-		 s1 = imageNames.get(j);
-	     
-		// pixterLoadImage(s1);
-		 imgView.setImageDrawable(Drawable.createFromPath(imageNames
-					.get(j)));
+      //Reinstantiates imgView. Variable j is used to move through all the elements in the list
+      //handler is paused for 3 seconds before next image is loaded
+      private void refreshUI()
+      {
+    	 imgView.setImageDrawable(Drawable.createFromPath(imageNames.get(j)));
+    	 mRedrawHandler.sleep(3000);
 		 j = j +1;
 		 if (j == imageNames.size()) j = 0;
-     
-    	
+       }
+    	  
+ 
+	//Different functionality needed
+	public void onBackPressed()
+    {
+		 imgView.setImageDrawable(Drawable.createFromPath(imageNames.get(j)));
+		 j = j +1;
+		 if (j == imageNames.size()) j = 0;
+
 	}
   
+	//All images in Download directory are added to the list string
 	private List<String> ReadSDCard()  
 	{  
 
