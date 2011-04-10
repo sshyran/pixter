@@ -1,6 +1,6 @@
 =Install Drivers= 
 
- # Download Drivers from "Downloads" tab
+  # Download Drivers from "Downloads" tab
   # Install drivers
   # Once drivers are installed restart Computer
   # connect phone in "Charge Only" mode
@@ -12,5 +12,4 @@
   # Click Run button
   # Click HT06......
   # Click OK
-
   # DONE!!!!!
