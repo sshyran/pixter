@@ -11,4 +11,9 @@
     <string name="get_all">Get All Pictures</string>
     <string name="notifications">Notifications</string>
     <string name="transition_speed">Transition Speed</string>
+    
+        <string name="hello">Hello World, image!</string>
+    <string name="ImageURI">Your Image URL </string>
+    <string name="directory">Download</string>
+    
 </resources>

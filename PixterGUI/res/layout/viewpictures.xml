@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ImageButton 
-	xmlns:android="http://schemas.android.com/apk/res/android" 
-	android:id="@+id/baseball" 
-	android:src="@drawable/baseball" 
-	android:layout_gravity="center" android:layout_height="fill_parent" android:layout_width="fill_parent">
-</ImageButton>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent" android:orientation="vertical">
+    
+    <Button android:id="@+id/Button01" android:layout_width="wrap_content" android:onClick="ClickHandler" android:layout_height="wrap_content" android:text="Download"></Button>
+    <Button android:id="@+id/next_pic" android:layout_width="wrap_content" android:onClick="nextpic_handler" android:typeface="serif" android:layout_height="wrap_content" android:text="Next Picture" android:textStyle="italic"></Button>
+    
+    <TextView android:layout_height="wrap_content" android:text="TextView" android:id="@+id/textView1" android:layout_width="wrap_content"></TextView>
+
+  <ViewFlipper
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:id="@+id/flip"
+    >
+    <ImageView
+   android:id="@+id/ImageView01"
+   android:scaleType="center"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:visibility="visible"/>
+  
+</ViewFlipper>
+</LinearLayout>
