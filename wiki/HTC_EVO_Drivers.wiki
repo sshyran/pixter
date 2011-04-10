@@ -1,0 +1,15 @@
+Download Drivers from "Downloads" tab
+Install drivers
+Once drivers are installed restart Computer
+connect phone in "Charge Only" mode
+open Eclipse and select Android project
+Click Drop Down Menu for Run Button ( Play looking button )
+Click Run Configurations....
+Click Target Device Tab
+Select Manual radio button
+Click Run button
+Click HT06......
+Click OK
+
+
+DONE!!!!!
