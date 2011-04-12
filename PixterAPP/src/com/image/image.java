@@ -176,6 +176,23 @@ public class image extends Activity {
 		 changeURLStr(url + getServerData(KEY_121));
 	    }
 	 
+	 public void ClickHandler1(View v)
+	    {
+		 j = j +1;
+		 drawable = LoadImageFromWebOperations(url + getServerData(KEY_121));
+		 imgView.setImageDrawable(drawable);
+		   txtView =(TextView)findViewById(R.id.textView1);
+	        txtView.setText(Integer.toString(j));
+	    }
+	 
+	 public void ClickHandler2(View v)
+	    {
+		 j = j -1;
+		 drawable = LoadImageFromWebOperations(url + getServerData(KEY_121));
+		 imgView.setImageDrawable(drawable);
+		   txtView =(TextView)findViewById(R.id.textView1);
+	        txtView.setText(Integer.toString(j));
+	    }
 	 private void changeURLStr(String newUrl) {
 			//URL reviewImageURL;
 		 reviewImageLink =  getServerData(KEY_121);
