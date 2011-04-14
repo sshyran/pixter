@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <Button android:onClick="ClickHandler" android:layout_height="wrap_content" android:id="@+id/Button01" android:text="Delete" android:layout_width="wrap_content"></Button>
+  
+ <ViewFlipper
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:id="@+id/flip"
+    >
+    <ImageView
+   android:id="@+id/ImageView01"
+   android:scaleType="fitCenter"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:visibility="visible"/>
+   
+   <ImageView
+   android:id="@+id/ImageView02"
+   android:scaleType="fitCenter"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:visibility="visible"/>
+  
+  </ViewFlipper>
+</LinearLayout>
