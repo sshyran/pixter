@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="fill_parent"
     android:layout_width="fill_parent" android:orientation="vertical">
     
-    <Button android:id="@+id/Button01" android:layout_width="wrap_content" android:onClick="ClickHandler" android:layout_height="wrap_content" android:text="Download"></Button>
-    <Button android:id="@+id/next_pic" android:layout_width="wrap_content" android:onClick="nextpic_handler" android:typeface="serif" android:layout_height="wrap_content" android:text="Next Picture" android:textStyle="italic"></Button>
+    <Button 
+    android:id="@+id/Button01" 
+    android:layout_width="wrap_content" 
+    android:onClick="ClickHandler" 
+    android:layout_height="wrap_content" 
+    android:text="Download"
+    android:layout_alignParentLeft="true"
+    >
+    </Button>
     
-    <TextView android:layout_height="wrap_content" android:text="TextView" android:id="@+id/textView1" android:layout_width="wrap_content"></TextView>
+    <Button 
+    android:id="@+id/next_pic" 
+    android:layout_width="wrap_content"
+     android:layout_height="wrap_content" 
+     android:text="Next" 
+     android:layout_toRightOf="@+id/button1"
+     android:onClick="nextpic_handler">
+     </Button>
+     
+    <Button 
+    android:id="@+id/button1"     
+    android:layout_height="wrap_content" 
+    android:layout_width="wrap_content" 
+    android:text="Prev"
+    android:layout_toRightOf="@+id/Button01"
+    >
+    </Button>
 
   <ViewFlipper
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent"
     android:id="@+id/flip"
+    android:layout_below="@+id/button1"
     >
     <ImageView
    android:id="@+id/ImageView01"
@@ -22,4 +46,4 @@
    android:visibility="visible"/>
   
 </ViewFlipper>
-</LinearLayout>
+</RelativeLayout>
