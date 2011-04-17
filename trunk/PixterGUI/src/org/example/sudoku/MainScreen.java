@@ -23,25 +23,44 @@ Button b3;
         setContentView(R.layout.main); 
         b1 = (Button) findViewById(R.id.viewPicturesButton);
         b2 = (Button) findViewById(R.id.options_button);
-        b1.setOnClickListener(myhandler1);
-        b2.setOnClickListener(myhandler2);
+ //       b1.setOnClickListener(myhandler1);
+ //       b2.setOnClickListener(myhandler2);
         
 //        setContentView(R.layout.viewpictures); 
 //        b3 = (Button) findViewById(R.id.next_pic);
 //        b2.setOnClickListener(myhandler3);
         
       }
-      View.OnClickListener myhandler1 = new View.OnClickListener() {
-        public void onClick(View v) {
-        	startActivity(new Intent(MainScreen.this, image.class));
+//      View.OnClickListener myhandler1 = new View.OnClickListener() {
+//        public void onClick(View v) {
+//        	startActivity(new Intent(MainScreen.this, image.class));
  //       	startActivity(new Intent(MainScreen.this, image.class));
-        }
-      };
-      View.OnClickListener myhandler2 = new View.OnClickListener() {
-        public void onClick(View v) {
-        	startActivity(new Intent(MainScreen.this, Options.class));
-        }
-      };
+//        }
+//      };
+//      View.OnClickListener myhandler2 = new View.OnClickListener() {
+//        public void onClick(View v) {
+//        	startActivity(new Intent(MainScreen.this, Options.class));
+//        }
+//      };
+    public void myhandler1(View v)
+    {
+	  startActivity(new Intent(MainScreen.this, image.class));
+    }
+      
+    public void options_handler(View v)
+	{
+      startActivity(new Intent(MainScreen.this, Options.class));
+	}
+    public void delete_handler(View v)
+	{
+      startActivity(new Intent(MainScreen.this, delete.class));
+	}
+    public void readsd_handler(View v)
+	{
+      startActivity(new Intent(MainScreen.this, startReadSD.class));
+	}
+    
+    
 //      View.OnClickListener myhandler3 = new View.OnClickListener() {
 //          public void onClick(View v) {
 //          	startActivity(new Intent(MainScreen.this, image.class));

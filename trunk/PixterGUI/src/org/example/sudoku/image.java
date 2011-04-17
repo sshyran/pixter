@@ -65,7 +65,7 @@ public class image extends Activity {
        //when a view disappears
         flip.setOutAnimation(this, android.R.anim.fade_out); 
    
-         //txtView =(TextView)findViewById(R.id.textView1);
+         txtView =(TextView)findViewById(R.id.textView1);
          txtView.setText(Integer.toString(j));
          imgView =(ImageView)findViewById(R.id.ImageView01);
        
@@ -147,7 +147,7 @@ public class image extends Activity {
 		 j = j +1;
 		 drawable = LoadImageFromWebOperations(url + getServerData(KEY_121));
 		 imgView.setImageDrawable(drawable);
-		   //txtView =(TextView)findViewById(R.id.textView1);
+		   txtView =(TextView)findViewById(R.id.textView1);
 	        txtView.setText(Integer.toString(j));
 	    }
 	 public void ClickHandler(View v)
@@ -184,6 +184,7 @@ public class image extends Activity {
 	private class DownloadImageTask extends AsyncTask<URL, Integer, Bitmap> {
 		// This class definition states that DownloadImageTask will take String
 		// parameters, publish Integer progress updates, and return a Bitmap
+		@Override
 		protected Bitmap doInBackground(URL... paths) {
 			URL url;
 			try {
@@ -226,6 +227,7 @@ public class image extends Activity {
 			}
 			return null;
 		}
+		@Override
 		protected void onPostExecute(Bitmap result) {
 			 String name = getServerData(KEY_121);
 			//String name = reviewImageLink.substring(reviewImageLink
