@@ -33,6 +33,7 @@ android:layout_alignParentRight="true"
 android:layout_marginLeft="10dip"
 android:typeface="serif"
 android:textStyle="italic"
+android:onClick="myhandler1"
 />
 <Button
 android:id="@+id/about_button"
@@ -45,6 +46,7 @@ android:layout_toLeftOf="@+id/exit_button"
 android:layout_alignTop="@+id/exit_button"
 android:typeface="serif"
 android:textStyle="italic"
+android:onClick="readsd_handler"
 />
 
 <Button
@@ -59,6 +61,7 @@ android:layout_alignParentRight="true"
 android:layout_marginLeft="10dip" 
 android:typeface="serif"
 android:textStyle="italic"
+android:onClick="delete_handler"
 />
 <Button
 android:id="@+id/options_button"
@@ -72,6 +75,7 @@ android:layout_alignParentRight="true"
 android:layout_marginLeft="10dip" 
 android:typeface="serif"
 android:textStyle="italic" 
+android:onClick="options_handler"
 />
 
 </RelativeLayout>
