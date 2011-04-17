@@ -1,29 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-    <Button android:onClick="ClickHandler" android:layout_height="wrap_content" android:id="@+id/Button01" android:text="Delete" android:layout_width="wrap_content"></Button>
-  
+    <Button 
+    android:onClick="ClickHandler" 
+    android:layout_height="wrap_content" 
+    android:id="@+id/Button01" 
+    android:text="Delete" 
+    android:layout_alignParentLeft="true"
+    android:layout_width="wrap_content">
+    </Button>
+      
+    <Button 
+    android:layout_width="wrap_content" 
+    android:id="@+id/button1" 
+    android:text="Next Image" 
+    android:layout_toRightOf="@id/Button01"
+    android:layout_height="wrap_content"
+    >
+    </Button>
+    
+    <Button 
+    android:text="Previous Image" 
+    android:id="@+id/button2" 
+    android:layout_toRightOf="@+id/button1"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    >
+    </Button>
+      
  <ViewFlipper
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent"
     android:id="@+id/flip"
+    android:layout_below="@+id/Button01"
     >
-    <ImageView
-   android:id="@+id/ImageView01"
-   android:scaleType="fitCenter"
-   android:layout_width="fill_parent"
-   android:layout_height="fill_parent"
-   android:visibility="visible"/>
    
    <ImageView
    android:id="@+id/ImageView02"
    android:scaleType="fitCenter"
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
-   android:visibility="visible"/>
+   android:visibility="visible"
+	/>
+	
+   <ImageView 
+   android:scaleType="fitCenter" 
+   android:layout_height="fill_parent" 
+   android:visibility="visible" 
+   android:id="@+id/ImageView01" 
+   android:layout_width="fill_parent">
+   </ImageView>
   
   </ViewFlipper>
-</LinearLayout>
+</RelativeLayout>
