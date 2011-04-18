@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 //import R.attr;
 public class MainScreen extends Activity 
@@ -20,6 +21,7 @@ Button b3;
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         setContentView(R.layout.main); 
         b1 = (Button) findViewById(R.id.viewPicturesButton);
         b2 = (Button) findViewById(R.id.options_button);
