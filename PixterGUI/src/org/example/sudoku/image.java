@@ -35,6 +35,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class image extends Activity {
@@ -142,6 +143,7 @@ public class image extends Activity {
 	            return null;
 	        }
 	    }
+    
 	 public void nextpic_handler(View v)
 	    {
 		 j = j +1;
@@ -150,12 +152,24 @@ public class image extends Activity {
 		   txtView =(TextView)findViewById(R.id.textView1);
 	        txtView.setText(Integer.toString(j));
 	    }
+	 
+	 public void previoius_handler(View v)
+	    {
+		 j = j - 1;
+		 if (j <= 0) j = 0;
+		 drawable = LoadImageFromWebOperations(url + getServerData(KEY_121));
+		 imgView.setImageDrawable(drawable);
+		   txtView =(TextView)findViewById(R.id.textView1);
+	        txtView.setText(Integer.toString(j));
+	    }
+	//Download Image Button
 	 public void ClickHandler(View v)
 	    {
-		 //chgURL = true;
+		 Toast.makeText(this, "Image Being Downloaded", Toast.LENGTH_SHORT).show();
 		 changeURLStr(url + getServerData(KEY_121));
 	    }
 	 
+	 //Download Image Function, calls other functions to download from internet and save to SDcard
 	 private void changeURLStr(String newUrl) {
 			//URL reviewImageURL;
 		 reviewImageLink =  getServerData(KEY_121);
@@ -175,12 +189,17 @@ public class image extends Activity {
 					sdImageMainDirectory.mkdirs();
 					File file = new File(sdImageMainDirectory, name);
 					Log.v("log_tag", "Directory created");
+					
+					Toast.makeText(this, "Download Has Finished", Toast.LENGTH_SHORT).show();
 				}
 
 			} catch (MalformedURLException e) {
+				Toast.makeText(this, "Download Failed", Toast.LENGTH_SHORT).show();
 				Log.v(TAG, e.toString());
 			}
 		} 
+	 
+	 
 	private class DownloadImageTask extends AsyncTask<URL, Integer, Bitmap> {
 		// This class definition states that DownloadImageTask will take String
 		// parameters, publish Integer progress updates, and return a Bitmap
@@ -243,6 +262,7 @@ public class image extends Activity {
 			}
 		}
 	}
+	
 	public void saveToSDCard(Bitmap bitmap, String name) {
 		boolean mExternalStorageAvailable = false;
 		boolean mExternalStorageWriteable = false;
@@ -294,6 +314,7 @@ public class image extends Activity {
 			e.printStackTrace();
 		}
 	}
+	
 	private boolean hasExternalStoragePublicPicture(String name) {
 		File sdImageMainDirectory = new File(Environment
 				.getExternalStorageDirectory(), getResources().getString(
