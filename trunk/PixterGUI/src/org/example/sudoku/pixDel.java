@@ -8,11 +8,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
   
-public class pixDel extends Activity {  
+public class pixDel extends Activity implements OnClickListener {  
 /** Called when the activity is first created. */
 	public String s1;
 	private ViewFlipper flip;
@@ -26,8 +32,14 @@ public class pixDel extends Activity {
 	public void onCreate(Bundle savedInstanceState) {  
 	    super.onCreate(savedInstanceState);  
 	    
-	    setContentView(R.layout.deletepix);  
-	    
+	    setContentView(R.layout.deletepix); 
+        Button btn = (Button) findViewById(R.id.Button01);
+        registerForContextMenu(btn);
+        btn.setOnClickListener(DeleteMenu);
+
+        //View v = (View)findViewById(R.id.view); 
+        //v.setOnClickListener(this);
+
 	    imageNames = ReadSDCard();										//Read Images from SD card and store in List
 	    imgView =(ImageView)findViewById(R.id.ImageView01);				// Instantiate Image view
 	    imgView.setImageDrawable(Drawable.createFromPath(imageNames     // View images from List
@@ -47,28 +59,20 @@ public class pixDel extends Activity {
 	   
 	}  
 	
+
 	// cycle through images
     @Override
 	public void onBackPressed()
-    {                
-         /*s1 = imageNames.get(j);
-         imgView.setImageDrawable(Drawable.createFromPath(imageNames
-                                .get(j)));
-         j = j +1;
-         if (j == imageNames.size()) j = 0;*/
+    { 
     	startActivity(new Intent(pixDel.this, MainScreen.class));
-     
-        }
+    }
 
-    
     
     public void next_handler(View v)
     {
-    	
     	imageNames = ReadSDCard();	
         j = j +1;
-        if (j == imageNames.size()) j = 0;
-        
+        if (j >= imageNames.size()) j = 0;
         //s1 = imageNames.get(j);
         imgView.setImageDrawable(Drawable.createFromPath(imageNames
                 .get(j)));
@@ -76,7 +80,6 @@ public class pixDel extends Activity {
     
     public void previous_handler(View v)
     {
-    	
     	imageNames = ReadSDCard();	
     	if ((j)== 0) j = imageNames.size() - 1; 
     	else j =j-1;
@@ -85,22 +88,43 @@ public class pixDel extends Activity {
                 .get(j)));
 
     }
-	//Delete Images and re-read images in sdcard
-    public void ClickHandler(View v)
-    {
-    	//int k = j-1;
-    	//if ((j-1)<0) k = imageNames.size() - 1;
-		File del = new File(imageNames.get(j));
+    
+    //After clicking on Delete Button context menu appears
+	View.OnClickListener DeleteMenu = new View.OnClickListener() {
+	      public void onClick(View v) {
+	    	   openContextMenu(v);
+	     }
+	   };
+	   
+	    //Context Menu to Assure user wants to delete Image
+	   @Override
+	   public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+			menu.setHeaderTitle("Context Menu");
+			menu.add(0, v.getId(), 0, "Delete Image");
+			menu.add(0, v.getId(), 0, "Keep Image");
+		}
+
+	   @Override
+		public boolean onContextItemSelected(MenuItem item) {
+	      	if(item.getTitle()=="Delete Image"){Delete();}
+	   	else {return false;}
+		return true;
+		}
+	   
+    //Delete image function, re read number of images in SD card, move to next image
+    public void Delete(){
+    	//Toast.makeText(this, "function 1 called", Toast.LENGTH_SHORT).show();
+    	File del = new File(imageNames.get(j));
 		boolean deleted = del.delete();
 		imageNames = ReadSDCard();
 		j = j+1;
 		if (j >= imageNames.size()) j = 0;
 	    imgView.setImageDrawable(Drawable.createFromPath(imageNames
                 .get(j)));
-	    
-
-
     }
+    
+
   
 	//All images in Download directory are added to the list string
 	private List<String> ReadSDCard()  
@@ -122,8 +146,14 @@ public class pixDel extends Activity {
 	 }  
 	  
 	 return tFileList;  
-	}  
-	
-	   
+	}
 
-}  
+
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
+	}
+
+ 
+
+} 
