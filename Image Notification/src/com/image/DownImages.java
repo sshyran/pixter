@@ -60,6 +60,7 @@ public class DownImages extends BroadcastReceiver {
 	int picNum=5;
 	boolean go=true;//false means downloading. true means done
 	int savePic;
+	int numTasks=0;
 	
 	Bitmap daPicture;
 
@@ -79,7 +80,7 @@ public class DownImages extends BroadcastReceiver {
 			
 	
 			//picNum=picNames.size();
-				picNum=20;
+				picNum=numOfPictures;
 				savePic=20;
 			while(picNum>0)
 			{				
@@ -246,6 +247,7 @@ public class DownImages extends BroadcastReceiver {
 	 private void changeURLStr(String image,Context context) {
 			//URL reviewImageURL;
 			Toast.makeText(context, "changeURLStr", Toast.LENGTH_LONG).show();
+			numTasks++;
 
 			String name =url +  image;
 			try
@@ -257,7 +259,9 @@ public class DownImages extends BroadcastReceiver {
 				{
 					Toast.makeText(context, "InsideIFStatement", Toast.LENGTH_LONG).show();
 					isImage = false;
+					
 					new DownloadImageTask().execute(reviewImageURL);
+					
 					Log.v("log_tag", "if");
 					isImage = true;
 					/*File sdImageMainDirectory = new File(Environment
