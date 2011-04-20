@@ -37,8 +37,8 @@
 				
 		</activity>
 		
-		<activity android:name="pixterReadSD"></activity>
-		<activity android:name=".startReadSD"
+		<activity android:name="startReadSD"></activity>
+		<activity android:name=".pixterReadSD"
 				      android:label="@string/app_name"
 				      android:theme="@android:style/Theme.NoTitleBar.Fullscreen">>
 				
