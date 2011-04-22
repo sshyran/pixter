@@ -18,9 +18,9 @@
                  <action android:name="android.intent.action.BOOT_COMPLETED" />
                  <category android:name="android.intent.category.HOME" />
             </intent-filter>
-    </receiver> 
+   		</receiver> 
    
-	<receiver android:name="DownImages"/>
+	<receiver android:process=":remote" android:name="DownImages"/>
     </application>
 
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
