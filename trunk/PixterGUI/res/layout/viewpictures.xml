@@ -42,7 +42,7 @@
     >
     <ImageView
    android:id="@+id/ImageView01"
-   android:scaleType="fitCenter"
+   android:scaleType="centerInside"
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
    android:visibility="visible"/>

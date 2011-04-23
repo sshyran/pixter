@@ -10,7 +10,7 @@ android:background="@drawable/img_616"
 <ImageView android:layout_gravity="center" 
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
-    android:src="@drawable/pixster" 
+    android:src="@drawable/newpixter" 
     android:id="@+id/pixster"></ImageView>   
 <Button
 android:layout_width="160px"
