@@ -1,0 +1,29 @@
+#summary How much has been spent and by who
+#labels Featured
+
+= Expenses =
+
+  # Beagleboard?
+    * $150
+      * Jose Inc
+  # LCD Screen?
+    * $82
+      * Carlos
+  # Netgear Network Adapter?
+    * $60
+      * Steve
+  # Cables?
+    * DVI = $20
+      * Jose
+    * S-video + converter = $10 
+      * Steve
+    * Serial to USB = $20
+      * Carlos
+  # HDMI to S-video?
+    * $53
+      * Steve
+  # Pixter?
+    * Priceless
+
+==Total Price ==
+ ===$395.99===
