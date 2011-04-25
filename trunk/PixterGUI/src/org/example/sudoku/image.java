@@ -153,7 +153,7 @@ public class image extends Activity {
 	        txtView.setText(Integer.toString(j));
 	    }
 	 
-	 public void previoius_handler(View v)
+	 public void previous_handler(View v)
 	    {
 		 j = j - 1;
 		 if (j <= 0) j = 0;
