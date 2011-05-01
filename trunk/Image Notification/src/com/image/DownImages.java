@@ -28,6 +28,8 @@ import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -40,11 +42,11 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class DownImages extends BroadcastReceiver
-{
+public class DownImages extends BroadcastReceiver {
 
 	/*----------------------------New----------------------------*/
-	public static final String GETMAX = "http://javacpp.com/steve/max.php"; 
+	public static final String GETMAX = "http://javacpp.com/steve/max.php";
+	public static final String GETPRIME = "http://javacpp.com/steve/primary.php";
 	static int Cabron = 0;
 	public int j;
 	static Drawable drawable;
@@ -52,7 +54,6 @@ public class DownImages extends BroadcastReceiver
 	public static final String KEY_121 = "http://javacpp.com/steve/db.php"; // i
 	public String reviewImageLink;
 	public URL reviewImageURL;
-	private boolean isImage = false;
 	private static final String TAG = "PRANJAL";
 	public Context newContext;
 	int numOfPictures = 0;
@@ -61,6 +62,7 @@ public class DownImages extends BroadcastReceiver
 	int picNum;
 	int savePic;
 	int numTasks = 0;
+	int numPrime;
 
 	Bitmap daPicture;
 
@@ -70,35 +72,54 @@ public class DownImages extends BroadcastReceiver
 	@Override
 	public void onReceive(Context context, Intent intent) 
 	{
+		SharedPreferences myPrefs = context.getSharedPreferences("settings",Context.MODE_WORLD_READABLE);
+        SharedPreferences.Editor prefsEditor = myPrefs.edit();
 		Toast.makeText(context, "Checking for New Pictures", Toast.LENGTH_LONG);
 		newContext = context;
-		numOfPictures = getServerData(GETMAX, context); // gets humber of
-		// pictures
+		numPrime= getServerData(GETPRIME, context);
+		//prefsEditor.putInt("oldPrime", 0);///			DELETE THIS AFTER DEBUGGIN
+	   // prefsEditor.commit();//							DELETE THIS AFTER DEBUGGIN
+		Log.e("Prime", "Online Prime Is # " + numPrime);
+		Log.e("internalPrime","oldPrime: " + myPrefs.getInt("oldPrime", 0));
+		Log.e("internalMax","oldMax: " + myPrefs.getInt("oldMax", 0));
+        int difference;
+		numOfPictures = getServerData(GETMAX, context); // gets humber of pictures
+		Log.e("Max", "Online Max Is # " + numOfPictures);
 
-		if (numOfPictures != picsB4)// new pictures can be less or > than before
-		{// NOTE:IT IS CHECKING FOR CHANGES SO IF ONE ADDED THEN SUB WONT WORK
+
+		if (numPrime > myPrefs.getInt("oldPrime", 0))
+		{		
+			Toast.makeText(context, "Checking for New Pictures", Toast.LENGTH_LONG);
+			//numOfPictures = getServerData(GETMAX, context); // gets humber of pictures
+			difference=numOfPictures- myPrefs.getInt("oldMax", 0);
+			//difference=(difference>1?difference:0);
+			Log.e("difference ","difference is:"+ difference);
 			getServerData(KEY_121);// gets names of pictures and saves on
-
-
-			// picNum=picNames.size();
-			picsB4 = numOfPictures;
-			picNum = numOfPictures;
-			savePic = numOfPictures;
-			while (picNum > 0)
+			picNum = numOfPictures;//DONT CHANGE THIS
+			savePic = numOfPictures;//DONT CHANGE THIS
+			while(difference>0)///////////work on task
 			{
+				Log.e("Inside while ","inside whileloop");
 				changeURLStr(picNames.get(picNum - 1), context);// download
-				// images
+				difference--;
 				picNum--;
-
 			}
+			prefsEditor.putInt("oldPrime", numPrime);
 		}
+		prefsEditor.putInt("oldMax", numOfPictures);
+		prefsEditor.commit();
+		//prefsEditor.putInt("oldPrime", 0);	//FOR DEBUGGIN
+		//prefsEditor.putInt("oldMax", 0);		//FOR DEBUGGIN
+		//prefsEditor.commit();					//FOR DEBUGGIN
 	}
 
 	// this fuction CALCULATES # OF PICTURES ONLINE NOT NAMES!!!!
-	private int getServerData(String returnString, Context context) {
+	private int getServerData(String site, Context context)
+	{
 
 		InputStream is = null;
-	//	Toast.makeText(context, "Checking for New Pictures", Toast.LENGTH_LONG).show();
+		// Toast.makeText(context, "Checking for New Pictures",
+		// Toast.LENGTH_LONG).show();
 
 		String result = "";
 		String result1 = "";
@@ -110,7 +131,7 @@ public class DownImages extends BroadcastReceiver
 			// Toast.makeText(context, "one", Toast.LENGTH_LONG).show();
 
 			HttpClient httpclient = new DefaultHttpClient();
-			HttpPost httppost = new HttpPost(GETMAX);
+			HttpPost httppost = new HttpPost(site);
 			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 			HttpResponse response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
@@ -123,7 +144,8 @@ public class DownImages extends BroadcastReceiver
 
 		// convert response to string
 		try {
-			//Toast.makeText(context, "Getting names", Toast.LENGTH_LONG).show();
+			// Toast.makeText(context, "Getting names",
+			// Toast.LENGTH_LONG).show();
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					is, "iso-8859-1"), 8);
@@ -140,7 +162,7 @@ public class DownImages extends BroadcastReceiver
 			Cabron = Integer.parseInt(result.trim());
 			return numofPics;
 		} catch (Exception e) {
-			//Toast.makeText(context, "4", Toast.LENGTH_LONG).show();
+			// Toast.makeText(context, "4", Toast.LENGTH_LONG).show();
 
 			Log.e("log_tag", "Error converting result " + e.toString());
 		}
@@ -183,11 +205,9 @@ public class DownImages extends BroadcastReceiver
 			while (result.length() != 0) {
 				picNames.add(result1.substring(0, result1.indexOf(",")));
 				// single[i] = result1.substring(0, result1.indexOf(","));
-				result1 = result1.substring(result1.indexOf(",") + 1,
-						result1.length());
+				result1 = result1.substring(result1.indexOf(",") + 1,result1.length());
 				i++;
-			}
-			// j=j%j.
+			}	
 		} catch (Exception e) {
 			Log.e("log_tag", "Error converting result " + e.toString());
 		}
@@ -206,22 +226,22 @@ public class DownImages extends BroadcastReceiver
 
 	private void changeURLStr(String image, Context context) {
 		// URL reviewImageURL;
-		//Toast.makeText(context, "changeURLStr", Toast.LENGTH_LONG).show();
+		// Toast.makeText(context, "changeURLStr", Toast.LENGTH_LONG).show();
 		numTasks++;
 
 		String name = url + image;
 		try {
-		//	Toast.makeText(context, "PicName " + image, Toast.LENGTH_LONG).show();
+			// Toast.makeText(context, "PicName " + image,
+			// Toast.LENGTH_LONG).show();
 
 			reviewImageURL = new URL((name));
 			if (!hasExternalStoragePublicPicture(image)) {
-				//Toast.makeText(context, "InsideIFStatement", Toast.LENGTH_LONG).show();
-				isImage = false;
+				// Toast.makeText(context, "InsideIFStatement",
+				// Toast.LENGTH_LONG).show();
 
 				new DownloadImageTask().execute(reviewImageURL);
 
 				Log.v("log_tag", "if");
-				isImage = true;
 				/*
 				 * File sdImageMainDirectory = new File(Environment
 				 * .getExternalStorageDirectory(), "Download");
@@ -245,7 +265,7 @@ public class DownImages extends BroadcastReceiver
 			try {
 				url = paths[0];
 				HttpURLConnection connection = (HttpURLConnection) url
-				.openConnection();
+						.openConnection();
 				int length = connection.getContentLength();
 				InputStream is = (InputStream) url.getContent();
 				byte[] imageData = new byte[length];
@@ -286,29 +306,26 @@ public class DownImages extends BroadcastReceiver
 		protected void onPostExecute(Bitmap result) {
 
 			// String name = getServerData(KEY_121);
-			String name = picNames.get(savePic-1);
+			String name = picNames.get(savePic - 1);
 			savePic--;
-			//Toast.makeText(newContext, "NameOfBitmap" + result.toString(),Toast.LENGTH_LONG).show();
+			// Toast.makeText(newContext, "NameOfBitmap" +
+			// result.toString(),Toast.LENGTH_LONG).show();
 
 			if (isCancelled())
 				result = null;
-			if (result != null)
-			{
+			if (result != null) {
 				hasExternalStoragePublicPicture(name);
 				saveToSDCard(result, name);
-				isImage = true;
-				//Toast.makeText(newContext, "if", Toast.LENGTH_LONG).show();
-			} 
-			else
-			{
-				isImage = false;
-				//Toast.makeText(newContext, "else", Toast.LENGTH_LONG).show();
+				// Toast.makeText(newContext, "if", Toast.LENGTH_LONG).show();
+			} else {
+				// Toast.makeText(newContext, "else", Toast.LENGTH_LONG).show();
 			}
 		}
 	}
 
 	public void saveToSDCard(Bitmap bitmap, String name) {
-	//	Toast.makeText(newContext, "in SaveToSDCard", Toast.LENGTH_LONG).show();
+		// Toast.makeText(newContext, "in SaveToSDCard",
+		// Toast.LENGTH_LONG).show();
 
 		boolean mExternalStorageAvailable = false;
 		boolean mExternalStorageWriteable = false;
@@ -330,10 +347,12 @@ public class DownImages extends BroadcastReceiver
 		}
 	}
 
-	private void saveFile(Bitmap bitmap, String name) {
+	private void saveFile(Bitmap bitmap, String name) 
+	{
 
 		String filename = name;
-		//Toast.makeText(newContext, "in SaveFile " + filename, Toast.LENGTH_LONG).show();
+		// Toast.makeText(newContext, "in SaveFile " + filename,
+		// Toast.LENGTH_LONG).show();
 
 		ContentValues values = new ContentValues();
 		File sdImageMainDirectory = new File(
@@ -354,7 +373,7 @@ public class DownImages extends BroadcastReceiver
 			// OutputStream outStream =
 			// this.getContentResolver().openOutputStream(uri);
 			OutputStream outStream = newContext.getContentResolver()
-			.openOutputStream(uri);
+					.openOutputStream(uri);
 			bitmap.compress(Bitmap.CompressFormat.PNG, 95, outStream);
 
 			outStream.flush();

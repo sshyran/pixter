@@ -115,17 +115,15 @@ public class image extends Activity {
         
         Intent intent = new Intent(this, DownImages.class);
 
-       // PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,
-        //		intent, PendingIntent.FLAG_CANCEL_CURRENT);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,
-        		intent, PendingIntent.FLAG_ONE_SHOT);
+       PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,intent, PendingIntent.FLAG_CANCEL_CURRENT);
+      //  PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,intent, PendingIntent.FLAG_ONE_SHOT);
       //  PendingIntent.getBroadcast(this, 0, intent, PendingIntent.)
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
        // alarmManager.set(AlarmManager.RTC,System.currentTimeMillis() + (600 * 1000) , pendingIntent);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(), 60*1000,pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(), 100*1000,pendingIntent);
+      //  alarmManager.cancel(pendingIntent);//cancel background downloading
+       // alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,0, 100*1000,pendingIntent);//check minutes
         //Toast.makeText(this, "Alarm set", Toast.LENGTH_LONG).show();
-        
-   
-        
+               
 	}
 }
