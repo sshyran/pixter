@@ -3,7 +3,10 @@ package org.example.sudoku;
 //import org.example.sudoku.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
 
 
 public class Options extends Activity 
@@ -14,7 +17,14 @@ public class Options extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.options);
- //       startActivity(new Intent(Options.this, .class));
-            
+         
     }
+
+    public void transition_handler(View v)
+	{
+    	setContentView(R.layout.transitionspeed);
+     	startActivity(new Intent(Options.this, transitionSpeed.class));
+	}
+   
+    
 }

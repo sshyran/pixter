@@ -34,6 +34,7 @@ android:textColor="#111199"
 android:shadowColor="#555555"
 android:typeface="serif"
 android:textStyle="italic"
+android:onClick="transition_handler"
 />
 
 </LinearLayout>
