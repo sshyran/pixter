@@ -12,8 +12,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
+import org.example.sudoku.transitionSpeed;
   
 public class pixterReadSD extends Activity {  
 /** Called when the activity is first created. */
@@ -22,6 +25,7 @@ public class pixterReadSD extends Activity {
 	Drawable drawable;
 	ImageView imgView, imgView2 ;
 	public int j = 1;
+	
 	private RefreshHandler mRedrawHandler = new RefreshHandler();
 	List<String> imageNames = new ArrayList<String>();  
 	
@@ -65,14 +69,14 @@ public class pixterReadSD extends Activity {
           }
         
       };
-      
+            
       //Reinstantiates imgView. Variable j is used to move through all the elements in the list
       //handler is paused for 3 seconds before next image is loaded
       //Order of code is very important and shall not be moved
       private void refreshUI()
       {
     	  
-    	 mRedrawHandler.sleep(3000); // deliberately placed in this location to get synchronized animation
+    	 mRedrawHandler.sleep(transitionSpeed.interval_speed); // deliberately placed in this location to get synchronized animation
     	 imgView.setImageDrawable(Drawable.createFromPath(imageNames.get(j)));
     	 imgView2.setImageDrawable(Drawable.createFromPath(imageNames.get(j)));
     	 flip.showNext();  // deliberately placed in this location to get synchronized animation
