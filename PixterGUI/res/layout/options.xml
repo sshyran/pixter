@@ -36,5 +36,26 @@ android:typeface="serif"
 android:textStyle="italic"
 android:onClick="transition_handler"
 />
-
+<Button
+android:id="@+id/downloadinbackground"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Download In The Background"
+android:textColor="#111199"
+android:shadowColor="#555555"
+android:typeface="serif"
+android:textStyle="italic"
+android:onClick="dib_handler"
+/>
+<Button
+android:id="@+id/stopdownloadinbackground"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Stop Downloading in Background"
+android:textColor="#111199"
+android:shadowColor="#555555"
+android:typeface="serif"
+android:textStyle="italic"
+android:onClick="sdib_handler"
+/>
 </LinearLayout>
