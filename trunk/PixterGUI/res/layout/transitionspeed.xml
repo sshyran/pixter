@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/img_616"
+    android:orientation="vertical">
+         
+<Button
+android:id="@+id/Threesec"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Three Seconds"
+android:textColor="#111199"
+android:shadowColor="#555555"
+android:typeface="serif"
+android:textStyle="italic"
+android:onClick ="Threesec_handler"
+/>
+<Button
+android:id="@+id/Fivesec"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Five Seconds"
+android:textColor="#111199"
+android:shadowColor="#555555"
+android:typeface="serif"
+android:textStyle="italic"
+android:onClick ="Fivesec_handler"
+/>
+</LinearLayout>
