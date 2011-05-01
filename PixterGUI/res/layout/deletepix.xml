@@ -32,35 +32,32 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:onClick="ClickHandler" 
     android:layout_height="wrap_content" 
     android:id="@+id/Button01" 
-    android:text="Delete" 
-	android:layout_x="220px"
+    android:layout_x="220px"
 	android:layout_y="340px"
-    android:layout_width="wrap_content">
+    android:layout_width="wrap_content" android:background="@drawable/deletewhite">
     </Button>
       
     <Button 
     android:focusable="true"
     android:layout_width="wrap_content" 
     android:id="@+id/button1" 
-    android:text="Previous Image" 
     android:layout_toRightOf="@id/Button01"
     android:layout_height="wrap_content"
     android:onClick="previous_handler"
     android:layout_x="0px"
 	android:layout_y="130px"
     
-    >
+    android:background="@drawable/leftarrow">
     </Button>
     
     <Button 
-    android:text="Next Image" 
     android:id="@+id/button2" 
     android:layout_x="430px"
 	android:layout_y="130px"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     android:onClick="next_handler"
-    >
+    android:background="@drawable/rightarrow">
     </Button>
 
 </AbsoluteLayout>
