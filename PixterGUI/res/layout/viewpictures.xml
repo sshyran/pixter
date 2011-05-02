@@ -27,7 +27,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/Button01" 
     android:layout_x="220px"
 	android:layout_y="340px"
-    android:layout_width="wrap_content" android:background="@drawable/downloadtransparent">
+    android:layout_width="wrap_content" >
     </Button>
       
     <Button 
@@ -37,7 +37,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_y="130px"
     android:layout_height="wrap_content"
     android:onClick="previous_handler"
-    android:background="@drawable/leftarrow">
+    >
     </Button>
     
     <Button 
@@ -47,7 +47,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     android:onClick="nextpic_handler"
-    android:background="@drawable/rightarrow">
+    >
     </Button>
     <TextView android:layout_height="wrap_content" android:text="TextView" android:id="@+id/textView1" android:layout_toRightOf="@+id/next_pic" android:layout_width="wrap_content"></TextView>
 </AbsoluteLayout>
