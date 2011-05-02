@@ -21,8 +21,7 @@ public class Options extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.options);
-         
+        setContentView(R.layout.options);        
     }
 
     public void transition_handler(View v)
