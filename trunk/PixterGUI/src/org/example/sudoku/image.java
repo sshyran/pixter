@@ -50,7 +50,7 @@ public class image extends Activity {
 	public int j = 0;
 	//String url = "http://www.javacpp.com/steve/images/";
 	
-	String url1="http://www.javacpp.com/";
+	String url1="http://www.javacpp.com/pixter/";
 	String url2=login.user;
 	String url3="/images/";
 
