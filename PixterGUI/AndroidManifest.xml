@@ -6,6 +6,7 @@
       <supports-screens android:largeScreens="true" />
       <supports-screens android:smallScreens="true" />
       
+      
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:name="MainScreen"
                   android:label="@string/app_name"
@@ -21,11 +22,6 @@
 		                android:label="@string/app_name"
 		                android:theme="@android:style/Theme.NoTitleBar.Fullscreen">>
 		          
-		</activity>
-		 <activity android:name=".DownImages"
-		                android:label="@string/app_name"
-		                android:theme="@android:style/Theme.NoTitleBar.Fullscreen">>
-		          
 		</activity>	
 		
 		<activity android:name=".Options"
@@ -34,6 +30,13 @@
 				
 		</activity>
 		<activity android:name=".transitionSpeed"
+				      android:label="@string/app_name"
+				      android:theme="@android:style/Theme.NoTitleBar.Fullscreen">>
+				
+		</activity>
+		
+		
+		<activity android:name=".login"
 				      android:label="@string/app_name"
 				      android:theme="@android:style/Theme.NoTitleBar.Fullscreen">>
 				
@@ -60,12 +63,15 @@
             </intent-filter>
     </receiver> 
     
+    <receiver android:name="DownImages"></receiver>
     
+    <activity android:name="delete"></activity>
    </application>
 
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>  
+
     
 </manifest> 
