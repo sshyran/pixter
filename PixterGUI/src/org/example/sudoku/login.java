@@ -11,7 +11,7 @@ public class login extends Activity {
     public static EditText mUsername;
     public static String user;
     private EditText mPassword;
-    public static String webURL = "http://javacpp.com/";
+    public static String webURL = "http://javacpp.com/pixter/";
     public static String webURL2 = "/db.php";
     public static String pixterWeb;
 
