@@ -8,7 +8,7 @@ import android.view.View;
   
 public class transitionSpeed extends Activity {  
 	
-	public static long interval_speed;
+	public static long interval_speed = 2000;
 	@Override  
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

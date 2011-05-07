@@ -39,7 +39,10 @@ public class MainScreen extends Activity
 	{
       startActivity(new Intent(MainScreen.this, startReadSD.class));
 	}
-    
+    public void login_handler(View v)
+	{
+      startActivity(new Intent(MainScreen.this, login.class));
+	}
     public void onBackPressed()
     {
 		

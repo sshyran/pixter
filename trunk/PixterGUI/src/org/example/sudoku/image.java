@@ -48,7 +48,14 @@ public class image extends Activity {
 	private ViewFlipper flip;
 	public String jj = "";
 	public int j = 0;
-	String url = "http://www.javacpp.com/steve/images/";
+	//String url = "http://www.javacpp.com/steve/images/";
+	
+	String url1="http://www.javacpp.com/";
+	String url2=login.user;
+	String url3="/images/";
+
+	String url = url1 + url2+ url3;
+	
 	Drawable drawable;
 	TextView txt;
 	ImageView imgView ;
@@ -77,7 +84,8 @@ public class image extends Activity {
         //flip.setAutoStart(true);
         
 	}
-	public static final String KEY_121 = "http://javacpp.com/steve/db.php"; //i use my real ip here
+	//public static final String KEY_121 = "http://javacpp.com/steve/db.php"; //i use my real ip here
+	public static final String KEY_121 = login.pixterWeb;
 	private String getServerData(String returnString) 
 	{
 	   InputStream is = null;
