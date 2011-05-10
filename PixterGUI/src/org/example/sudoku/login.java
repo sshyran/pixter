@@ -32,9 +32,10 @@ public class login extends Activity {
     public static String pixterWeb;
     public static String authURL = "http://javacpp.com/pixter/usernameList.php";
     public int j = 0;
+    public int k = 0;
     
-    //List<String> userList = new ArrayList<String>();
-   // List<String> pwList = new ArrayList<String>();
+    List<String> userList = new ArrayList<String>();
+    List<String> pwList = new ArrayList<String>();
 
     TextView txtView;
     
@@ -47,21 +48,35 @@ public class login extends Activity {
         mPassword = (EditText) findViewById(R.id.password);
         
         txtView =(TextView)findViewById(R.id.URL);
-       // getServerData(authURL);
+        getServerData(authURL);
         
     }
     
     public void ClickHandler(View v)
     {
+    	k = 0;
+    	boolean searchUserList = true;
     	user = mUsername.getText().toString();
         String pass = mPassword.getText().toString();
+        while (searchUserList  && k < userList.size()-1){
+        	if (user.equals(userList.get(k))){
+        		searchUserList = false;
+        	}else{
+        		k++;
+        	}
+        				
+        }
+ 
+        if (pass.equals(pwList.get(k))){	
     	pixterWeb = webURL + user + webURL2;
     	txtView.setText(pixterWeb);
-	 
+        }else {
+        	txtView.setText("username or password incorrect");
+        }
     }
     
 
-/*	private String getServerData(String returnString) 
+	private String getServerData(String returnString) 
 	{
 	   InputStream is = null;
 
@@ -100,15 +115,14 @@ public class login extends Activity {
 	            result1=result;
 	            while (result.length()!=0)
 	            {
-	            	//single[i] = result1.substring(0, result1.indexOf(","));
+	            
 	            	userList.add(result1.substring(0, result1.indexOf(",")));
 	            	result1 = result1.substring(result1.indexOf(",")+1, result1.length()); 
 	            	pwList.add(result1.substring(0, result1.indexOf("|")));
-	            	result1 = result1.substring(result1.indexOf("I")+1, result1.length()); 
+	            	result1 = result1.substring(result1.indexOf("|")+1, result1.length()); 
 	            	i++;
 	            }
-	            //j=j%j.
-	            //return single[j];
+	          
 	            return pwList.get(j);
 	    }
 	    catch(Exception e)
@@ -116,8 +130,7 @@ public class login extends Activity {
 	            Log.e("log_tag", "Error converting result "+e.toString());
 	    }
 	     return pwList.get(j);
-	     //return single[j];
-	    //return result;
-	} */  
+
+	}  
 }
     
