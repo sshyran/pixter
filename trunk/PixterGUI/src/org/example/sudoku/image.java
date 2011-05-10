@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -53,6 +54,8 @@ public class image extends Activity {
 	String url1="http://www.javacpp.com/pixter/";
 	String url2=login.user;
 	String url3="/images/";
+	
+	List<String> single = new ArrayList<String>(); 
 
 	String url = url1 + url2+ url3;
 	
@@ -92,7 +95,8 @@ public class image extends Activity {
 
 	   String result = "";
 	   String result1 = "";
-	   String single[] = {"","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""};
+	   //List<String> single = new ArrayList<String>(); 
+	   //String single[] = {"","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""};
 	   int i = 0;
 	    //the year data to send
 	    ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
@@ -125,18 +129,21 @@ public class image extends Activity {
 	            result1=result;
 	            while (result.length()!=0)
 	            {
-	            	single[i] = result1.substring(0, result1.indexOf(","));
+	            	//single[i] = result1.substring(0, result1.indexOf(","));
+	            	single.add(result1.substring(0, result1.indexOf(",")));
 	            	result1 = result1.substring(result1.indexOf(",")+1, result1.length()); 
 	            	i++;
 	            }
 	            //j=j%j.
-	            return single[j];
+	            //return single[j];
+	            return single.get(j);
 	    }
 	    catch(Exception e)
 	    {
 	            Log.e("log_tag", "Error converting result "+e.toString());
 	    }
-	     return single[j];
+	     return single.get(j);
+	     //return single[j];
 	    //return result;
 	}   
     private Drawable LoadImageFromWebOperations(String url)
@@ -154,7 +161,9 @@ public class image extends Activity {
     
 	 public void nextpic_handler(View v)
 	    {
+		 if (j + 1 >= single.size()) j = 0;
 		 j = j +1;
+		 
 		 drawable = LoadImageFromWebOperations(url + getServerData(KEY_121));
 		 imgView.setImageDrawable(drawable);
 		   txtView =(TextView)findViewById(R.id.textView1);
@@ -164,7 +173,7 @@ public class image extends Activity {
 	 public void previous_handler(View v)
 	    {
 		 j = j - 1;
-		 if (j <= 0) j = 0;
+		 if (j < 0) j = single.size() - 1;
 		 drawable = LoadImageFromWebOperations(url + getServerData(KEY_121));
 		 imgView.setImageDrawable(drawable);
 		   txtView =(TextView)findViewById(R.id.textView1);
