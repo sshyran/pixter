@@ -45,11 +45,10 @@ public class image extends Activity {
 	public String reviewImageLink;
 	public URL reviewImageURL;
 	public boolean chgURL = false;
-//	private final String imageInSD = "/sdcard/Download/";//brooklyn.PNG";
 	private ViewFlipper flip;
 	public String jj = "";
 	public int j = 0;
-	//String url = "http://www.javacpp.com/steve/images/";
+
 	
 	String url1="http://www.javacpp.com/pixter/";
 	String url2=login.user;
@@ -82,12 +81,9 @@ public class image extends Activity {
        
          drawable = LoadImageFromWebOperations(url + getServerData(KEY_121));
          imgView.setImageDrawable(drawable);
-      
-        //flip.setFlipInterval(2000);
-        //flip.setAutoStart(true);
         
 	}
-	//public static final String KEY_121 = "http://javacpp.com/steve/db.php"; //i use my real ip here
+	
 	public static final String KEY_121 = login.pixterWeb;
 	private String getServerData(String returnString) 
 	{
@@ -95,9 +91,8 @@ public class image extends Activity {
 
 	   String result = "";
 	   String result1 = "";
-	   //List<String> single = new ArrayList<String>(); 
-	   //String single[] = {"","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""};
-	   int i = 0;
+	   
+	    int i = 0;
 	    //the year data to send
 	    ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 	    nameValuePairs.add(new BasicNameValuePair("filename","brooklyn.jpg"));
@@ -129,13 +124,11 @@ public class image extends Activity {
 	            result1=result;
 	            while (result.length()!=0)
 	            {
-	            	//single[i] = result1.substring(0, result1.indexOf(","));
 	            	single.add(result1.substring(0, result1.indexOf(",")));
 	            	result1 = result1.substring(result1.indexOf(",")+1, result1.length()); 
 	            	i++;
 	            }
-	            //j=j%j.
-	            //return single[j];
+
 	            return single.get(j);
 	    }
 	    catch(Exception e)
@@ -143,8 +136,7 @@ public class image extends Activity {
 	            Log.e("log_tag", "Error converting result "+e.toString());
 	    }
 	     return single.get(j);
-	     //return single[j];
-	    //return result;
+
 	}   
     private Drawable LoadImageFromWebOperations(String url)
 	   {
@@ -188,11 +180,9 @@ public class image extends Activity {
 	 
 	 //Download Image Function, calls other functions to download from internet and save to SDcard
 	 private void changeURLStr(String newUrl) {
-			//URL reviewImageURL;
+
 		 reviewImageLink =  getServerData(KEY_121);
-		 String name = reviewImageLink;//getServerData(KEY_121);
-			//String name = reviewImageLink + Integer.toString(j);
-					//.lastIndexOf("/") + 1);
+		 String name = reviewImageLink;
 			try {
 				reviewImageURL = new URL(newUrl);
 				if (!hasExternalStoragePublicPicture(name)) {
@@ -266,8 +256,7 @@ public class image extends Activity {
 		@Override
 		protected void onPostExecute(Bitmap result) {
 			 String name = getServerData(KEY_121);
-			//String name = reviewImageLink.substring(reviewImageLink
-			//		.lastIndexOf("/") + 1);
+
 			if (result != null) {
 				hasExternalStoragePublicPicture(name);
 				saveToSDCard(result, name);
