@@ -6,30 +6,10 @@
     android:orientation="vertical">
          
 <Button
-android:id="@+id/get_all"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="@string/get_all"
-android:textColor="#111199"
-android:shadowColor="#555555"
-android:typeface="serif"
-android:textStyle="italic"
-/>
-<Button
-android:id="@+id/notifications"
-android:layout_width="fill_parent"
-android:layout_height="wrap_content"
-android:text="@string/notifications"
-android:textColor="#111199"
-android:shadowColor="#555555"
-android:typeface="serif"
-android:textStyle="italic"
-/>
-<Button
 android:id="@+id/transition"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
-android:text="@string/transition_speed"
+android:text="Transition Speed and Animations"
 android:textColor="#111199"
 android:shadowColor="#555555"
 android:typeface="serif"
