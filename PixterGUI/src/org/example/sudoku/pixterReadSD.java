@@ -25,7 +25,6 @@ public class pixterReadSD extends Activity {
 	Drawable drawable;
 	ImageView imgView, imgView2 ;
 	public int j = 1;
-	
 	private RefreshHandler mRedrawHandler = new RefreshHandler();
 	List<String> imageNames = new ArrayList<String>();  
 	
@@ -46,9 +45,15 @@ public class pixterReadSD extends Activity {
 				.get(0)));
 	    
 	    flip = (ViewFlipper)findViewById(R.id.flip);
-	    flip.setInAnimation(this,android.R.anim.fade_in);
-	    flip.setOutAnimation(this, android.R.anim.fade_out);
 	    
+	    if(transitionSpeed.slide == 2000){
+		    flip.setInAnimation(this,android.R.anim.fade_in);
+		    flip.setOutAnimation(this, android.R.anim.fade_out);
+	    }
+	    else if (transitionSpeed.slide == 1000){
+	    	flip.setInAnimation(this,android.R.anim.slide_in_left);
+	    	flip.setOutAnimation(this, android.R.anim.slide_out_right);
+	    }
 	    refreshUI();	//Handler to refresh Imageview every 3 seconds
 	    
 	   
