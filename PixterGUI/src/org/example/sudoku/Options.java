@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -29,6 +30,14 @@ public class Options extends Activity
 	{
     	setContentView(R.layout.transitionspeed);
      	startActivity(new Intent(Options.this, transitionSpeed.class));
+     	TextView trans;
+        TextView anim;
+
+        trans = (TextView)findViewById(R.id.transitiontext);
+    	anim = (TextView)findViewById(R.id.animationtext);
+    	trans.setText(transitionSpeed.transition);
+    	anim.setText(transitionSpeed.animation);
+    	
 	}
     public void dib_handler(View v)
 	{

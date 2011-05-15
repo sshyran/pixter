@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/img_616"
-    android:orientation="vertical">
-         
+<AbsoluteLayout
+android:id="@+id/widget0"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@drawable/blueimage"
+>
 <Button
 android:id="@+id/transition"
-android:layout_width="fill_parent"
+android:layout_width="200dip"
 android:layout_height="wrap_content"
 android:text="Transition Speed and Animations"
 android:textColor="#111199"
@@ -15,10 +16,12 @@ android:shadowColor="#555555"
 android:typeface="serif"
 android:textStyle="italic"
 android:onClick="transition_handler"
+android:layout_x="100px"
+android:layout_y="50px"
 />
 <Button
 android:id="@+id/downloadinbackground"
-android:layout_width="fill_parent"
+android:layout_width="200dip"
 android:layout_height="wrap_content"
 android:text="Download In The Background"
 android:textColor="#111199"
@@ -26,10 +29,12 @@ android:shadowColor="#555555"
 android:typeface="serif"
 android:textStyle="italic"
 android:onClick="dib_handler"
+android:layout_x="100px"
+android:layout_y="150px"
 />
 <Button
 android:id="@+id/stopdownloadinbackground"
-android:layout_width="fill_parent"
+android:layout_width="200dip"
 android:layout_height="wrap_content"
 android:text="Stop Downloading in Background"
 android:textColor="#111199"
@@ -37,5 +42,7 @@ android:shadowColor="#555555"
 android:typeface="serif"
 android:textStyle="italic"
 android:onClick="sdib_handler"
+android:layout_x="100px"
+android:layout_y="250px"
 />
-</LinearLayout>
+</AbsoluteLayout>
