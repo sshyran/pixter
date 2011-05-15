@@ -98,7 +98,7 @@ public class DownImages extends BroadcastReceiver {
 		{		
 			Toast.makeText(context, "Checking for New Pictures", Toast.LENGTH_LONG);
 			//numOfPictures = getServerData(GETMAX, context); // gets humber of pictures
-			difference=numOfPictures- myPrefs.getInt("oldMax", 0);
+			difference=numOfPictures- myPrefs.getInt("oldMax"+login.pixterWeb, 0);
 			//difference=(difference>1?difference:0);
 			Log.e("difference ","difference is:"+ difference);
 			getServerData(KEY_121);// gets names of pictures and saves on
