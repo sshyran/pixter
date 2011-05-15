@@ -313,7 +313,7 @@ public class DownImages extends BroadcastReceiver {
 		protected void onPostExecute(Bitmap result) {
 
 			// String name = getServerData(KEY_121);
-			String name = picNames.get(savePic - 1);
+			String name = login.user+ picNames.get(savePic - 1);
 			savePic--;
 			// Toast.makeText(newContext, "NameOfBitmap" +
 			// result.toString(),Toast.LENGTH_LONG).show();
