@@ -40,13 +40,15 @@ import android.widget.Toast;
 public class DownImages extends BroadcastReceiver {
 
 	/*----------------------------New----------------------------*/
-	public static final String GETMAX = "http://javacpp.com/steve/max.php";
-	public static final String GETPRIME = "http://javacpp.com/steve/primary.php";
+	//public static final String GETMAX = "http://javacpp.com/pixter/carlos/max.php";
+	public static final String GETMAX = "http://javacpp.com/pixter/" + login.user + "/max.php";
+	//public static final String GETPRIME = "http://javacpp.com/pixter/carlos/primary.php";
+	public static final String GETPRIME = "http://javacpp.com/pixter/" + login.user + "/primary.php";
 	static int Cabron = 0;
 	public int j;
 	static Drawable drawable;
-	String url = "http://www.javacpp.com/steve/images/";
-	public static final String KEY_121 = "http://javacpp.com/steve/db.php"; // i
+	//String url = "http://www.javacpp.com/carlos/images/";
+	//public static final String KEY_121 = "http://javacpp.com/carlos/db.php"; // i
 	public String reviewImageLink;
 	public URL reviewImageURL;
 	private static final String TAG = "PRANJAL";
@@ -61,6 +63,16 @@ public class DownImages extends BroadcastReceiver {
 
 	Bitmap daPicture;
 
+	
+	String url1="http://www.javacpp.com/pixter/";
+	String url2=login.user;
+	String url3="/images/";
+
+	String url = url1 + url2+ url3;
+
+	public static final String KEY_121 = login.pixterWeb;
+
+	
 	/*----------------------------New----------------------------*/
 	// /NOTE: THERE ARE TWO getServerData fuctions overloaded
 	// ONE TO GET # OF PICTURES ONLINE OTHER TO DOWNLOAD THEM
@@ -75,14 +87,14 @@ public class DownImages extends BroadcastReceiver {
 		//prefsEditor.putInt("oldPrime", 0);///			DELETE THIS AFTER DEBUGGIN
 	   // prefsEditor.commit();//							DELETE THIS AFTER DEBUGGIN
 		Log.e("Prime", "Online Prime Is # " + numPrime);
-		Log.e("internalPrime","oldPrime: " + myPrefs.getInt("oldPrime", 0));
-		Log.e("internalMax","oldMax: " + myPrefs.getInt("oldMax", 0));
+		Log.e("internalPrime","oldPrime: " + myPrefs.getInt("oldPrime"+login.pixterWeb, 0));
+		Log.e("internalMax","oldMax: " + myPrefs.getInt("oldMax"+login.pixterWeb, 0));
         int difference;
 		numOfPictures = getServerData(GETMAX, context); // gets humber of pictures
 		Log.e("Max", "Online Max Is # " + numOfPictures);
 
 
-		if (numPrime > myPrefs.getInt("oldPrime", 0))
+		if (numPrime > myPrefs.getInt("oldPrime"+login.pixterWeb, 0))
 		{		
 			Toast.makeText(context, "Checking for New Pictures", Toast.LENGTH_LONG);
 			//numOfPictures = getServerData(GETMAX, context); // gets humber of pictures
@@ -99,9 +111,9 @@ public class DownImages extends BroadcastReceiver {
 				difference--;
 				picNum--;
 			}
-			prefsEditor.putInt("oldPrime", numPrime);
+			prefsEditor.putInt("oldPrime"+login.pixterWeb, numPrime);
 		}
-		prefsEditor.putInt("oldMax", numOfPictures);
+		prefsEditor.putInt("oldMax"+login.pixterWeb, numOfPictures);
 		prefsEditor.commit();
 		//prefsEditor.putInt("oldPrime", 0);	//FOR DEBUGGIN
 		//prefsEditor.putInt("oldMax", 0);		//FOR DEBUGGIN

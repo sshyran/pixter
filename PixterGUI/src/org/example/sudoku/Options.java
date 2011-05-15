@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 
 public class Options extends Activity 
@@ -32,7 +33,6 @@ public class Options extends Activity
     public void dib_handler(View v)
 	{
 		Log.e("dob", "download in b ground");
-
     	Intent intent = new Intent(this, DownImages.class);
 		PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,intent, PendingIntent.FLAG_CANCEL_CURRENT);
 		//  PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,intent, PendingIntent.FLAG_ONE_SHOT);
@@ -40,15 +40,21 @@ public class Options extends Activity
 		 AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
     
     	alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(), 100*1000,pendingIntent);
+		Toast.makeText(this, "Downloading in Background", Toast.LENGTH_LONG).show();
+
+
 	}
     public void sdib_handler(View v)
-	{//Intent intent = new Intent(this, DownImages.class);
-	//PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,intent, PendingIntent.FLAG_CANCEL_CURRENT);
-	//  PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,intent, PendingIntent.FLAG_ONE_SHOT);
-	//  PendingIntent.getBroadcast(this, 0, intent, PendingIntent.)
-	// AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+	{
+    	Intent intent = new Intent(this, DownImages.class);
+    	PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,intent, PendingIntent.FLAG_CANCEL_CURRENT);
+	  //PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,intent, PendingIntent.FLAG_ONE_SHOT);
+    	//PendingIntent.getBroadcast(this, 0, intent, PendingIntent.);
+    	AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-    	// alarmManager.cancel(pendingIntent);
+    	alarmManager.cancel(pendingIntent);
+		Toast.makeText(this, "Cancel Downloads in Background", Toast.LENGTH_LONG).show();
+
 	}
    
     
