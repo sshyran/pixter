@@ -107,7 +107,7 @@ public class DownImages extends BroadcastReceiver {
 			getServerData(KEY_121);// gets names of pictures and saves on
 			picNum = numOfPictures;//DONT CHANGE THIS
 			savePic = numOfPictures;//DONT CHANGE THIS
-			Toast.makeText(context, "Logged in is: "+ login.user, Toast.LENGTH_LONG).show();
+			Toast.makeText(context, "New Images Found Online ", Toast.LENGTH_LONG).show();
 
 			while(difference>0)///////////work on task
 			{
