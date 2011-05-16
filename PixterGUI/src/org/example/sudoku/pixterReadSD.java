@@ -87,7 +87,11 @@ public class pixterReadSD extends Activity {
     	 flip.showNext();  // deliberately placed in this location to get synchronized animation
     	
     	 j = j +1;
-		 if (j == imageNames.size()) j = 0;
+		 if (j == imageNames.size())
+			 {
+			 	j = 0;
+			 	imageNames = ReadSDCard();	
+			 }
 		 flip.showNext(); // deliberately placed in this location to get synchronized animation
 		    
        }
