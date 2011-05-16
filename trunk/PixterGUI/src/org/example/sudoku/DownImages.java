@@ -41,9 +41,9 @@ public class DownImages extends BroadcastReceiver {
 
 	/*----------------------------New----------------------------*/
 	//public static final String GETMAX = "http://javacpp.com/pixter/carlos/max.php";
-	public static final String GETMAX = "http://javacpp.com/pixter/" + login.user + "/max.php";
+	public   String GETMAX = "http://javacpp.com/pixter/" + login.user + "/max.php";
 	//public static final String GETPRIME = "http://javacpp.com/pixter/carlos/primary.php";
-	public static final String GETPRIME = "http://javacpp.com/pixter/" + login.user + "/primary.php";
+	public   String GETPRIME = "http://javacpp.com/pixter/" + login.user + "/primary.php";
 	static int Cabron = 0;
 	public int j;
 	static Drawable drawable;
@@ -70,7 +70,7 @@ public class DownImages extends BroadcastReceiver {
 
 	String url = url1 + url2+ url3;
 
-	public static final String KEY_121 = login.pixterWeb;
+	public  String KEY_121 = login.pixterWeb;
 
 	
 	/*----------------------------New----------------------------*/
@@ -79,6 +79,9 @@ public class DownImages extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) 
 	{
+		KEY_121 = login.pixterWeb;
+		GETMAX = "http://javacpp.com/pixter/" + login.user + "/max.php";
+		GETPRIME = "http://javacpp.com/pixter/" + login.user + "/primary.php";
 		SharedPreferences myPrefs = context.getSharedPreferences("settings",Context.MODE_WORLD_READABLE);
         SharedPreferences.Editor prefsEditor = myPrefs.edit();
 		Toast.makeText(context, "Checking for New Pictures", Toast.LENGTH_LONG);
@@ -104,10 +107,12 @@ public class DownImages extends BroadcastReceiver {
 			getServerData(KEY_121);// gets names of pictures and saves on
 			picNum = numOfPictures;//DONT CHANGE THIS
 			savePic = numOfPictures;//DONT CHANGE THIS
+			Toast.makeText(context, "Logged in is: "+ login.user, Toast.LENGTH_LONG).show();
+
 			while(difference>0)///////////work on task
 			{
 				Log.e("Inside while ","inside whileloop");
-				changeURLStr(picNames.get(picNum - 1), context);// download
+				changeURLStr(picNames.get(picNum-1), context);// download
 				difference--;
 				picNum--;
 			}
