@@ -9,10 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 //import R.attr;
 public class MainScreen extends Activity 
 {  
-
+	TextView txtView;
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -20,6 +21,9 @@ public class MainScreen extends Activity
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         setContentView(R.layout.main); 
+        txtView =(TextView)findViewById(R.id.loggedIn);
+        if (login.user != null)
+        	txtView.setText("Logged In As: " +login.user);
     }
 
     public void myhandler1(View v)

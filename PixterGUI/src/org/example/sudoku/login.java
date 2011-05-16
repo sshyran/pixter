@@ -69,9 +69,9 @@ public class login extends Activity {
  
         if (pass.equals(pwList.get(k))){	
     	pixterWeb = webURL + user + webURL2;
-    	txtView.setText(pixterWeb);
+    	txtView.setText("Logged in Sucessfully");
         }else {
-        	txtView.setText("username or password incorrect");
+        	txtView.setText("Username or Password incorrect");
         }
     }
     
