@@ -22,7 +22,10 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -68,7 +71,23 @@ public class image extends Activity {
 		super.onCreate(savedInstanceState);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
 		setContentView(R.layout.viewpictures);
+		
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	builder.setMessage("Not logged into account. Do you wish to log in?")
+    	       .setCancelable(false)
+    	       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	        		   startActivity(new Intent(image.this, login.class));
+    	           }
+    	       })
+    	       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	        	   startActivity(new Intent(image.this, MainScreen.class));
+    	           }
+    	       });
+    	AlertDialog alert = builder.create();
 
+    	
         flip = (ViewFlipper)findViewById(R.id.flip);
         
         flip.setInAnimation(this,android.R.anim.fade_in);
@@ -79,10 +98,20 @@ public class image extends Activity {
          txtView.setText(Integer.toString(j));
          imgView =(ImageView)findViewById(R.id.ImageView01);
        
+       try{
          drawable = LoadImageFromWebOperations(url + getServerData(KEY_121));
          imgView.setImageDrawable(drawable);
-        
+         
+       }catch(Exception e){
+	    	builder.show();
+	    	
+	    }
 	}
+	
+	public void onBackPressed()
+    { 
+    	startActivity(new Intent(image.this, MainScreen.class));
+    }
 	
 	public static final String KEY_121 = login.pixterWeb;
 	private String getServerData(String returnString) 
