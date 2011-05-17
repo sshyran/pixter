@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Timer;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -31,9 +33,27 @@ public class pixterReadSD extends Activity {
 	@Override  
 	public void onCreate(Bundle savedInstanceState) {  
 	    super.onCreate(savedInstanceState);  
-	    setContentView(R.layout.readsd);  
+	    setContentView(R.layout.readsd); 
 	    
-
+	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	builder.setMessage("No Images in Media Storage. Do you wish to download Images?")
+    	       .setCancelable(false)
+    	       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	        	   if (login.user != null)
+    	        		   startActivity(new Intent(pixterReadSD.this, image.class));
+    	        	   else
+    	        		   startActivity(new Intent(pixterReadSD.this, login.class));
+    	           }
+    	       })
+    	       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	        	   startActivity(new Intent(pixterReadSD.this, MainScreen.class));
+    	           }
+    	       });
+    	AlertDialog alert = builder.create();
+	    
+	    try{
 	    imageNames = ReadSDCard();										//Read Images from SD card and store in List
 	    imgView =(ImageView)findViewById(R.id.ImageView01);				// Instantiate Image view
 	    imgView.setImageDrawable(Drawable.createFromPath(imageNames     // View images from List
@@ -56,7 +76,10 @@ public class pixterReadSD extends Activity {
 	    }
 	    refreshUI();	//Handler to refresh Imageview every 3 seconds
 	    
-	   
+	    }catch(Exception e){
+	    	builder.show();
+	    	
+	    }
 	}  
 	
     // Handles Imageview Refresh 

@@ -16,6 +16,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -75,6 +76,10 @@ public class login extends Activity {
         }
     }
     
+	public void onBackPressed()
+    { 
+    	startActivity(new Intent(login.this, MainScreen.class));
+    }
 
 	private String getServerData(String returnString) 
 	{
