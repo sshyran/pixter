@@ -1,14 +1,17 @@
 #summary How much has been spent and by who
 #labels Featured
 
+_Note: Some costs may be missing_
 = Expenses =
 
   # Beagleboard?
     * $150
       * Jose Inc
   # LCD Screen?
-    * $82
+    * $160
       * Carlos
+    * $80
+      * Ralph
   # Netgear Network Adapter?
     * $60
       * Steve
@@ -22,8 +25,21 @@
   # HDMI to S-video?
     * $53
       * Steve
+  # Home Depot
+    * $10
+      * Carlos
   # Pixter?
     * Priceless
 
-==Total Price ==
- ===$395.99===
+=Total Cost =
+ ==$564.99==
+
+==Member Contribution==
+  ===$94 each===
+====Current Contributions====
+    * *Carlos:* $190
+    * *Damian:* ?
+    * *Jose:* $170
+    * *Ralph:* $80 
+    * *Steve:* $113
+    * *Shant:* ?  
