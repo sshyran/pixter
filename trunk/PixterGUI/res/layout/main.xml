@@ -17,15 +17,17 @@ android:background="@drawable/pixterblue"
     android:layout_width="wrap_content" 
     android:layout_height="wrap_content" 
     android:src="@drawable/newpixter" 
-    android:id="@+id/pixster"></ImageView>   
+    android:id="@+id/pixster"
+    android:layout_x="50px"
+    ></ImageView>   
 <Button
 android:layout_width="160px"
 android:layout_height="wrap_content"
 android:text="@string/continue_label" android:clickable="true" 
 android:id="@+id/loginButton"
 android:textColor="#111199"
-android:layout_x="230px"
-android:layout_y="120px"
+android:layout_x="330px"
+android:layout_y="220px"
 android:typeface="serif"
 android:textStyle="italic"
 android:onClick="login_handler"
@@ -40,8 +42,8 @@ android:layout_width="160px"
 android:typeface="serif"
 android:textStyle="italic"
 android:onClick="myhandler1"
-android:layout_x="230px"
-android:layout_y="170px"
+android:layout_x="330px"
+android:layout_y="270px"
 
 />
 <Button
@@ -54,8 +56,8 @@ android:typeface="serif"
 android:textStyle="italic"
 android:onClick="readsd_handler"
 android:layout_width="160px"
-android:layout_x="70px"
-android:layout_y="120px"
+android:layout_x="170px"
+android:layout_y="220px"
 
 />
 
@@ -70,8 +72,8 @@ android:layout_below="@+id/viewPicturesButton"
 android:typeface="serif"
 android:textStyle="italic"
 android:onClick="delete_handler"
-android:layout_x="70px"
-android:layout_y="170px"
+android:layout_x="170px"
+android:layout_y="270px"
 
 />
 <Button
@@ -85,8 +87,8 @@ android:layout_marginLeft="10dip"
 android:typeface="serif"
 android:textStyle="italic" 
 android:onClick="options_handler"
-android:layout_x="230px"
-android:layout_y="220px"
+android:layout_x="250px"
+android:layout_y="320px"
 
 />
 
