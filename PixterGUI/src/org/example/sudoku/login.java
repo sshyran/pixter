@@ -70,7 +70,8 @@ public class login extends Activity {
  
         if (pass.equals(pwList.get(k))){	
     	pixterWeb = webURL + user + webURL2;
-    	txtView.setText("Logged in Sucessfully");
+    	txtView.setText("Logged in Sucessfully"
+    	);startActivity(new Intent(login.this, MainScreen.class));
         }else {
         	txtView.setText("Username or Password incorrect");
         }

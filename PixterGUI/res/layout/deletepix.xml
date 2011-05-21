@@ -12,7 +12,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <ImageView
    android:id="@+id/ImageView01"
-   android:scaleType="fitCenter"
+   android:scaleType="centerInside"
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
    android:visibility="visible"
@@ -20,7 +20,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
    
    <ImageView
    android:id="@+id/ImageView02"
-   android:scaleType="fitCenter"
+   android:scaleType="centerInside"
    android:layout_width="fill_parent"
    android:layout_height="fill_parent"
    android:visibility="visible"
@@ -32,7 +32,10 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:onClick="ClickHandler" 
     android:layout_height="wrap_content" 
     android:id="@+id/Button01" 
-    android:layout_width="wrap_content">
+    android:layout_x="310px"
+	android:layout_y="450px"
+    android:layout_width="wrap_content"
+    android:background="@drawable/deletenew">
     </Button>
       
     <Button 
@@ -44,16 +47,18 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:onClick="previous_handler"
     android:layout_x="0px"
 	android:layout_y="130px"
+    android:background="@drawable/leftnew"
     >
     </Button>
     
     <Button 
     android:id="@+id/button2" 
-    android:layout_x="430px"
+    android:layout_x="620px"
 	android:layout_y="130px"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     android:onClick="next_handler"
+    android:background="@drawable/rightnew"
     >
     </Button>
 
