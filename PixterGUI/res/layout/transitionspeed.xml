@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/pixterblue"
-    android:orientation="vertical">
-         
-<TextView android:layout_width="wrap_content"
-android:layout_height="wrap_content" android:id="@+id/emailaddress"
-android:text="Transition Speed"></TextView>
+<AbsoluteLayout
+android:id="@+id/widget0"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@drawable/pixterblue"
+>
 
 <RadioGroup android:orientation="horizontal" android:id="@+id/radioGroup1" android:layout_height="wrap_content" android:layout_width="wrap_content">
-    <RadioButton android:id="@+id/radio0" android:layout_width="wrap_content" android:text="3 secs" android:layout_height="wrap_content"></RadioButton>
-    <RadioButton android:id="@+id/radio1" android:layout_width="wrap_content" android:text="4 secs" android:layout_height="wrap_content"></RadioButton>
-    <RadioButton android:id="@+id/radio2" android:layout_width="wrap_content" android:text="5 secs" android:layout_height="wrap_content"></RadioButton>
 </RadioGroup>
 
-<TextView android:layout_width="wrap_content"
-android:layout_height="wrap_content" android:id="@+id/emailaddress"
-android:text="Slide Show Animation"></TextView>
-
 <RadioGroup android:orientation="horizontal" android:id="@+id/radioGroup1" android:layout_height="wrap_content" android:layout_width="wrap_content">
-    <RadioButton android:id="@+id/radio3" android:layout_width="wrap_content" android:text="Slide in/out" android:layout_height="wrap_content"></RadioButton>
-    <RadioButton android:id="@+id/radio4" android:layout_width="wrap_content" android:text="Fade in/out" android:layout_height="wrap_content"></RadioButton>
     </RadioGroup>
 <TextView android:layout_width="wrap_content"
 android:layout_height="wrap_content" android:id="@+id/transitiontext"
@@ -29,16 +18,12 @@ android:text=""></TextView>
 <TextView android:layout_width="wrap_content"
 android:layout_height="wrap_content" android:id="@+id/animationtext"
 android:text=""></TextView>
-
-<Button
-android:id="@+id/Savebutton"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Save Changes"
-android:textColor="#111199"
-android:shadowColor="#555555"
-android:typeface="serif"
-android:textStyle="italic"
-android:onClick ="Threesec_handler"
-/>
-</LinearLayout>
+<TextView android:text="Transition Speed" android:id="@+id/emailaddress" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_x="90dip" android:layout_y="71dip"></TextView>
+<RadioButton android:id="@+id/radio0" android:text="3 secs" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_x="91dip" android:layout_y="99dip"></RadioButton>
+<RadioButton android:id="@+id/radio1" android:text="4 secs" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_x="193dip" android:layout_y="102dip"></RadioButton>
+<RadioButton android:id="@+id/radio2" android:text="5 secs" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_x="288dip" android:layout_y="103dip"></RadioButton>
+<TextView android:text="Slide Show Animation" android:id="@+id/emailaddress" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_x="89dip" android:layout_y="156dip"></TextView>
+<RadioButton android:id="@+id/radio3" android:text="Slide in/out" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_x="229dip" android:layout_y="189dip"></RadioButton>
+<Button android:textColor="#111199" android:id="@+id/Savebutton" android:textStyle="italic" android:text="Save Changes" android:typeface="serif" android:onClick="Threesec_handler" android:shadowColor="#555555" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_x="98dip" android:layout_y="254dip"></Button>
+<RadioButton android:id="@+id/radio4" android:text="Fade in/out" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_x="90dip" android:layout_y="187dip"></RadioButton>
+</AbsoluteLayout>
