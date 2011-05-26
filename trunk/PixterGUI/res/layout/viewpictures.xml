@@ -25,8 +25,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     android:onClick="ClickHandler" 
     android:layout_height="wrap_content" 
     android:id="@+id/Button01" 
-    android:layout_x="310px"
-	android:layout_y="450px"
+    android:layout_x="280px"
+	android:layout_y="400px"
     android:layout_width="wrap_content" 
     android:background="@drawable/downloadnew">
     </Button>
@@ -34,7 +34,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <Button 
     android:layout_width="wrap_content" 
     android:id="@+id/prev_pic" 
-    android:layout_x="0px"
+    android:layout_x="20px"
 	android:layout_y="130px"
     android:layout_height="wrap_content"
     android:onClick="previous_handler"
@@ -44,7 +44,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     
     <Button 
     android:id="@+id/next_pic" 
-    android:layout_x="620px"
+    android:layout_x="540px"
 	android:layout_y="130px"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
