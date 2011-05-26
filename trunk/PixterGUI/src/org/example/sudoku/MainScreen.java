@@ -3,6 +3,10 @@ package org.example.sudoku;
 //import org.example.sudoku.R;
 
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 //import R.attr;
 public class MainScreen extends Activity 
 {  
@@ -37,7 +42,12 @@ public class MainScreen extends Activity
 	}
     public void delete_handler(View v)
 	{
-      startActivity(new Intent(MainScreen.this, delete.class));
+    	boolean picsFound=ReadSDCard();
+    	if(picsFound)
+    		startActivity(new Intent(MainScreen.this, delete.class));
+    	else
+	    	Toast.makeText(this, "No Pictures Found. Login To Download Pictures", Toast.LENGTH_SHORT).show();
+
 	}
     public void readsd_handler(View v)
 	{
@@ -50,5 +60,17 @@ public class MainScreen extends Activity
     public void onBackPressed()
     {
 		
+	}
+    
+    private boolean ReadSDCard()  
+	{  	 
+	 //It have to be matched with the directory in SDCard  
+	 File f = new File("/mnt/sdcard/Download");  
+	  
+	 File[] files=f.listFiles();  
+	 if(files.length==0)
+		 return false;
+	 else	  
+		 return true;  
 	}
    }
